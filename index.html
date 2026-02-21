@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeFree - Women Safety</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span>🛡️</span> BeFree
+        </div>
+        <div class="status-badge" id="app-status">Systems active</div>
+    </header>
+
+    <main>
+        <!-- Emergency SOS Section -->
+        <section class="card">
+            <button class="sos-button" id="sos-btn">
+                SOS
+                <span>Press and hold in emergency</span>
+            </button>
+        </section>
+
+        <div class="feature-grid">
+            <!-- GPS Tracking Section -->
+            <section class="card">
+                <h2 class="card-title">📍 Live Location</h2>
+                <div id="location-info">
+                    <p class="text-muted">Fetching coordinates...</p>
+                    <div class="location-display" id="coords">--.----, --.----</div>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;" id="location-status">
+                    Waiting for GPS signal...</p>
+            </section>
+
+            <!-- Face Detection Section -->
+            <section class="card">
+                <h2 class="card-title">👤 Face Detection</h2>
+                <video id="camera-view" autoplay playsinline></video>
+                <div id="detection-info" style="margin-top: 0.5rem;">
+                    <span class="status-badge loading" id="camera-status">Initializing Camera...</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 BeFree Safety Project • Basic Frontend Version
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -65,6 +65,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         if ('vibrate' in navigator) {
             navigator.vibrate([200, 100, 200]);
         }
+
+        let coordsToSave = currentCoords;
+
+        // Force a read if GPS hasn't locked yet
+        if (!coordsToSave && 'geolocation' in navigator) {
+            try {
+                coordsToSave = await new Promise((resolve) => {
+                    navigator.geolocation.getCurrentPosition(
+                        pos => resolve({ latitude: pos.coords.latitude, longitude: pos.coords.longitude }),
+                        err => resolve(null), // If it fails, return null but don't stop SOS
+                        { timeout: 4000, enableHighAccuracy: true }
+                    );
+                });
+            } catch (err) {}
+        }
         
         try {
             // Push alert to Supabase
@@ -73,8 +88,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .insert([
                     {
                         user_id: user.id,
-                        latitude: currentCoords ? currentCoords.latitude : null,
-                        longitude: currentCoords ? currentCoords.longitude : null,
+                        latitude: coordsToSave ? coordsToSave.latitude : null,
+                        longitude: coordsToSave ? coordsToSave.longitude : null,
                         device_info: navigator.userAgent
                     }
                 ]);

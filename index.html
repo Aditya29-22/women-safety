@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeFree - Women Safety</title>
+    <title> Soumya - Women Safety</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,11 @@
         <div class="logo">
             <span>🛡️</span> BeFree
         </div>
-        <div class="status-badge" id="app-status">Systems active</div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="dashboard.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Dashboard</a>
+            <a href="contacts.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Contacts</a>
+            <button id="logout-btn" style="background: transparent; border: 1px solid var(--danger); color: var(--danger); padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer; font-size: 0.75rem;">Logout</button>
+        </div>
     </header>
 
     <main>
@@ -55,6 +59,8 @@
         &copy; 2026 BeFree Safety Project • Basic Frontend Version
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
     <script src="script.js"></script>
 </body>
 

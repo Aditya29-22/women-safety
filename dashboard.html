@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Dashboard - Women Safety</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .alert-item {
+            background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--danger);
+            padding: 1rem; border-radius: 0.5rem; margin-bottom: 0.5rem; display: flex;
+            justify-content: space-between; align-items: center; cursor: pointer;
+            transition: background 0.2s;
+        }
+        .alert-item:hover { background: rgba(239, 68, 68, 0.15); }
+        .alert-info strong { color: var(--danger); font-size: 1.1rem; }
+        .btn-view {
+            background: var(--danger); color: white; text-decoration: none;
+            padding: 0.5rem 1rem; border-radius: 0.25rem; font-size: 0.875rem; font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><span>🛡️</span> BeFree</div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Home</a>
+            <a href="contacts.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">Contacts</a>
+            <button id="logout-btn" style="background: transparent; border: 1px solid var(--danger); color: var(--danger); padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer; font-size: 0.75rem;">Logout</button>
+        </div>
+    </header>
+    <main>
+        <section class="card">
+            <h2 class="card-title" style="color: var(--danger);">Active SOS Alerts</h2>
+            <div id="alerts-list">
+                <p style="color: var(--text-muted); font-size: 0.875rem;">Loading alerts...</p>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
